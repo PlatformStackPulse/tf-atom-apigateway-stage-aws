@@ -32,3 +32,9 @@ variable "access_log_destination_arn" {
   description = "ARN of the CloudWatch log group for access logs"
   type        = string
 }
+
+variable "access_log_format" {
+  description = "Format of the access logs (JSON recommended)"
+  type        = string
+  default     = "{\"requestId\":\"$context.requestId\",\"ip\":\"$context.identity.sourceIp\",\"caller\":\"$context.identity.caller\",\"user\":\"$context.identity.user\",\"requestTime\":\"$context.requestTime\",\"httpMethod\":\"$context.httpMethod\",\"resourcePath\":\"$context.resourcePath\",\"status\":\"$context.status\",\"protocol\":\"$context.protocol\",\"responseLength\":\"$context.responseLength\"}"
+}

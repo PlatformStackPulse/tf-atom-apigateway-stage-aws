@@ -8,6 +8,7 @@ resource "aws_api_gateway_stage" "this" {
 
   access_log_settings {
     destination_arn = var.access_log_destination_arn
+    format          = var.access_log_format
   }
 
   tags = module.this.tags
